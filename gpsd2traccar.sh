@@ -1,2 +1,2 @@
 #!/bin/bash
-while : ; do $HOME/code/gpsd2traccar ; done
+while : ; do ./gpsd2traccar ; done
