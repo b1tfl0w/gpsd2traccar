@@ -120,7 +120,7 @@ int main(int argc,char *argv[]) {
 			break;
 		}
 		else {
-			if(g_gpsdata.fix.status == 0) {
+			if(g_gpsdata.fix.mode >= MODE_2D) {
 				if(isfinite(g_gpsdata.fix.latitude) && isfinite(g_gpsdata.fix.longitude)) {
 					// printf("[GPS DATA] Latitude %lf, Longitude %lf, Altitude %lf, Used satellites %d, Mode %d\r\n" , g_gpsdata.fix.latitude, g_gpsdata.fix.longitude, g_gpsdata.fix.altitude, g_gpsdata.satellites_used, g_gpsdata.fix.mode);
 					timeNow = time(NULL);
