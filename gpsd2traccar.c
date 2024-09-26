@@ -12,7 +12,7 @@
 #define SERVER_NAME         "localhost" /* address of the gps server */
 #define SERVER_PORT         "2947" /* port of the gps server */
 
-int debug = 0;
+int debug = 1;
 struct gps_data_t           g_gpsdata;
 int                         ret;
 void error(const char *msg) { perror(msg); exit(0); }
@@ -121,6 +121,7 @@ int main(int argc,char *argv[]) {
 		}
 		else {
 			if(g_gpsdata.fix.mode >= MODE_2D) {
+				if(debug == 1) printf("fix mode = %d", g_gpsdata.fix.mode);
 				if(isfinite(g_gpsdata.fix.latitude) && isfinite(g_gpsdata.fix.longitude)) {
 					// printf("[GPS DATA] Latitude %lf, Longitude %lf, Altitude %lf, Used satellites %d, Mode %d\r\n" , g_gpsdata.fix.latitude, g_gpsdata.fix.longitude, g_gpsdata.fix.altitude, g_gpsdata.satellites_used, g_gpsdata.fix.mode);
 					timeNow = time(NULL);
